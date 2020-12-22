@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SimpleTaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/sum', [SimpleTaskController::class, 'view']);
+Route::post('/sum', [SimpleTaskController::class, 'sum']);
+Route::get('/exampletoken', fn() => csrf_token());
